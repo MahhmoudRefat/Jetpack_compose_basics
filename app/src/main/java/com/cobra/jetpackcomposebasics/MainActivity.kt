@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.cobra.jetpackcomposebasics.ui.theme.JetpackComposeBasicsTheme
 
 class MainActivity : ComponentActivity() {
@@ -32,19 +33,25 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MyApp() {
-    Row(
+    Box(
         modifier = Modifier
-            .width(200.dp)
-            .height(150.dp)
-            .fillMaxSize()
-            .background(Color.Cyan),
-        verticalAlignment = Alignment.CenterVertically
-        , horizontalArrangement = Arrangement.SpaceAround
+            .background(Color.White)
+            .fillMaxSize(), contentAlignment = Alignment.TopCenter
     ) {
-        Text(text = "Hello")
-        Text(text = "android")
-        Text(text = "android")
-        Text(text = "android")
+        Box(
+            modifier = Modifier
+                .background(Color.Green)
+                .width(200.dp)
+                .height(200.dp), contentAlignment = Alignment.TopCenter
+        ) {
+            Box(
+                modifier = Modifier
+                    .background(Color.Cyan)
+            ) {
+                Text(text = "Mahmoud refaat", fontSize = 25.sp)
+            }
+        }
+
     }
 
 }
