@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CutCornerShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -14,6 +15,9 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -33,32 +37,38 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MyApp() {
-    Box(
+
+    Column(
         modifier = Modifier
             .background(Color.White)
-            .fillMaxSize(), contentAlignment = Alignment.TopCenter
+            .fillMaxSize()
     ) {
-        Box(
-            modifier = Modifier
+        Text(
+            text = "test Modifier", modifier = Modifier
+                .padding(10.dp)
                 .background(Color.Green)
-                .width(200.dp)
-                .height(200.dp), contentAlignment = Alignment.TopCenter
+                .padding(10.dp)
+                //.size(width = 200.dp, height = 150.dp)
+                .fillMaxWidth() // equal to match parent
+        )
+        Box(modifier = Modifier
+            .padding(start = 30.dp, top = 30.dp)
+            .rotate(45f)
+            .clip(shape = RoundedCornerShape(16.dp))
+            .size(150.dp)
+            .alpha(0.7f)
+            .background(Color.Cyan)
+            .border(width = 2.dp, color = Color.DarkGray, RoundedCornerShape(16.dp))
         ) {
-            Box(
-                modifier = Modifier
-                    .background(Color.Cyan)
-            ) {
-                Text(text = "Mahmoud refaat", fontSize = 25.sp)
-            }
+
         }
-
     }
-
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun AppPreview() {
+
     MyApp()
 
 }
