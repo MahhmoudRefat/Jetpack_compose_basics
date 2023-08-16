@@ -1,6 +1,7 @@
 package com.cobra.jetpackcomposebasics
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -16,6 +17,9 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -42,20 +46,22 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MyApp() {
-    val context = LocalContext.current
+    var context = LocalContext.current
+    var count = rememberSaveable { mutableStateOf(0) }
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.White), contentAlignment = Alignment.Center
+            .background(Color.White),
+        contentAlignment = Alignment.Center
     ) {
         Button(onClick = {
-            Toast.makeText(context, "Here is your new toast", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Here is the toast ", Toast.LENGTH_SHORT).show();
+            count.value++
+            Log.d("Tag", "${count.value}")
         }) {
-            Text(text = "Showing toast ")
 
+            Text(text = "cont : ${count.value}")
         }
-
-
     }
 
 

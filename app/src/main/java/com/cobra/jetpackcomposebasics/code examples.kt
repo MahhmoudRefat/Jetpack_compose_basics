@@ -132,4 +132,14 @@ fun AppPreview() {
         }
 
      */
+    /*
+    ************* making a toast *****************
+    *  Button(onClick = {
+            Toast.makeText(context, "Here is your new toast", Toast.LENGTH_SHORT).show()
+        }) {
+            Text(text = "Showing toast ")
+
+        }
+        *
+     */
 }
