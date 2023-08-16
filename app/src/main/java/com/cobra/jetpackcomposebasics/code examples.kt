@@ -142,4 +142,22 @@ fun AppPreview() {
         }
         *
      */
+
+    /*
+    ************************** state ***********
+
+     var context = LocalContext.current
+    var count = rememberSaveable { mutableStateOf(0) }
+
+     Button(onClick = {
+            Toast.makeText(context, "Here is the toast ", Toast.LENGTH_SHORT).show();
+            count.value++
+            Log.d("Tag", "${count.value}")
+        }) {
+
+            Text(text = "cont : ${count.value}")
+        }
+
+
+     */
 }

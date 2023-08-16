@@ -46,22 +46,30 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MyApp() {
-    var context = LocalContext.current
-    var count = rememberSaveable { mutableStateOf(0) }
-    Box(
+    var checkstate = remember { mutableStateOf(true) }
+    Column(
         modifier = Modifier
             .fillMaxSize()
             .background(Color.White),
-        contentAlignment = Alignment.Center
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Button(onClick = {
-            Toast.makeText(context, "Here is the toast ", Toast.LENGTH_SHORT).show();
-            count.value++
-            Log.d("Tag", "${count.value}")
-        }) {
+        //  Checkbox(checked =checkstate.value , onCheckedChange = {checkstate.value = it}   )
+        val fruitlist = arrayListOf("apple", "mango", "orange")
+        var ischeacked = remember { mutableStateOf(false) }
 
-            Text(text = "cont : ${count.value}")
+        fruitlist.forEach { option: String ->
+            Row(
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Checkbox(checked = ischeacked.value, onCheckedChange = {ischeacked.value = it})
+                Spacer(modifier = Modifier.size(16.dp))
+                Text(text = option)
+            }
+
         }
+
     }
 
 
