@@ -109,4 +109,27 @@ fun AppPreview() {
             Text(text = "ADD")
         }
  */
+    /*
+    ************button ***************
+    *
+        //rounded button
+        Button(onClick = { /*TODO*/ }, shape = RoundedCornerShape(15.dp)) {
+            Text(text = "Rounded button ")
+        }
+        //cutted button
+        Button(onClick = { /*TODO*/ }, shape = CutCornerShape(10.dp)) {
+            Text(text = "cutet corner")
+        }
+        Button(onClick = { /*TODO*/ }, shape = CircleShape, modifier = Modifier.size(100.dp)) {
+            Text(text = "Circle")
+        }
+        Button(
+            onClick = { /*TODO*/ },
+            elevation = ButtonDefaults.elevation(20.dp),
+            colors = ButtonDefaults.buttonColors(Color(0xF3EDECF0))
+        ) {
+            Text(text = "Button")
+        }
+
+     */
 }

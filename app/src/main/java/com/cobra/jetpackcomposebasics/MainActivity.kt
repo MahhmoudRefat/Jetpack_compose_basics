@@ -1,6 +1,7 @@
 package com.cobra.jetpackcomposebasics
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
@@ -22,6 +23,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -40,31 +42,17 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MyApp() {
-    Column(
+    val context = LocalContext.current
+    Box(
         modifier = Modifier
             .fillMaxSize()
-            .padding(10.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(20.dp)
+            .background(Color.White), contentAlignment = Alignment.Center
     ) {
+        Button(onClick = {
+            Toast.makeText(context, "Here is your new toast", Toast.LENGTH_SHORT).show()
+        }) {
+            Text(text = "Showing toast ")
 
-        //rounded button
-        Button(onClick = { /*TODO*/ }, shape = RoundedCornerShape(15.dp)) {
-            Text(text = "Rounded button ")
-        }
-        //cutted button
-        Button(onClick = { /*TODO*/ }, shape = CutCornerShape(10.dp)) {
-            Text(text = "cutet corner")
-        }
-        Button(onClick = { /*TODO*/ }, shape = CircleShape, modifier = Modifier.size(100.dp)) {
-            Text(text = "Circle")
-        }
-        Button(
-            onClick = { /*TODO*/ },
-            elevation = ButtonDefaults.elevation(20.dp),
-            colors = ButtonDefaults.buttonColors(Color(0xF3EDECF0))
-        ) {
-            Text(text = "Button")
         }
 
 
