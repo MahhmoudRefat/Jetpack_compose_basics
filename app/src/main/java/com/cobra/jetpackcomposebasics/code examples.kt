@@ -2,7 +2,7 @@ package com.cobra.jetpackcomposebasics
 
 class `Code_examples` {
     /*
-    امثلة للموديفير الى ممكن نكتبها
+   *******   امثلة للموديفير الى ممكن نكتبها
      @Composable
 fun FirstApp() {
     Surface(
@@ -27,5 +27,86 @@ fun FirstApp() {
 fun AppPreview() {
     FirstApp()
 }
+ */
+    /*
+    ***** modifier ******
+
+    Column(
+        modifier = Modifier
+            .background(Color.White)
+            .fillMaxSize()
+    ) {
+        Text(
+            text = "test Modifier", modifier = Modifier
+                .padding(10.dp)
+                .background(Color.Green)
+                .padding(10.dp)
+                //.size(width = 200.dp, height = 150.dp)
+                .fillMaxWidth() // equal to match parent
+        )
+        Box(modifier = Modifier
+            .padding(start = 30.dp, top = 30.dp)
+            .rotate(45f)
+            .clip(shape = RoundedCornerShape(16.dp))
+            .size(150.dp)
+            .alpha(0.7f)
+            .background(Color.Cyan)
+            .border(width = 2.dp, color = Color.DarkGray, RoundedCornerShape(16.dp))
+        ) {
+
+        }
+    }
+     */
+
+/*
+ ****************** Button lesson  *************************
+ *  Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.White)
+            .padding(20.dp),
+        verticalArrangement = Arrangement.spacedBy(20.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        //simple Button
+        Button(onClick = { /*TODO*/ }) {
+            Text(text = "Button")
+        }
+        //outlineButton
+        OutlinedButton(onClick = { /*TODO*/ }) {
+            Text(text = "outlineButton")
+        }
+        //text Button
+        TextButton(onClick = { /*TODO*/ }) {
+            Icon(
+                imageVector = Icons.Filled.Favorite,
+                contentDescription = null,
+                modifier = Modifier.size(ButtonDefaults.IconSize), tint = Color.Red
+            )
+            Spacer(modifier = Modifier.size(ButtonDefaults.IconSpacing))//space between icon and text
+            Text(text = "textButton ")
+        }
+        //icon button
+        IconButton(onClick = { /*TODO*/ }) {
+            Icon(
+                imageVector = Icons.Filled.Favorite,
+                contentDescription = "Icon",
+                tint = Color.Green
+            )
+
+        }
+        //Button
+        Button(
+            onClick = { /*TODO*/ },
+            shape = RoundedCornerShape(15.dp),
+            colors = ButtonDefaults.buttonColors(
+                backgroundColor = Color(0xA8AE91E0),
+                contentColor = Color.White
+            )
+        ) {
+            Icon(imageVector = Icons.Filled.Add, contentDescription = null)
+            Spacer(modifier = Modifier.size(ButtonDefaults.IconSpacing))
+            Text(text = "ADD")
+        }
  */
 }
