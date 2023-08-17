@@ -160,4 +160,25 @@ fun AppPreview() {
 
 
      */
+
+    /*
+
+    ******************************checkbox**********************
+
+
+     //  Checkbox(checked =checkstate.value , onCheckedChange = {checkstate.value = it}   )
+        val fruitlist = arrayListOf("apple", "mango", "orange")
+        var ischeacked = remember { mutableStateOf(false) }
+
+        fruitlist.forEach { option: String ->
+            Row(
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Checkbox(checked = ischeacked.value, onCheckedChange = {ischeacked.value = it})
+                Spacer(modifier = Modifier.size(16.dp))
+                Text(text = option)
+            }
+
+     */
 }

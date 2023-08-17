@@ -16,9 +16,7 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -46,7 +44,8 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MyApp() {
-    var checkstate = remember { mutableStateOf(true) }
+    var radio_option = listOf("apple","banana","orange")
+    var checkstate by remember { mutableStateOf(0) }
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -54,26 +53,18 @@ fun MyApp() {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        //  Checkbox(checked =checkstate.value , onCheckedChange = {checkstate.value = it}   )
-        val fruitlist = arrayListOf("apple", "mango", "orange")
-        var ischeacked = remember { mutableStateOf(false) }
 
-        fruitlist.forEach { option: String ->
-            Row(
-                horizontalArrangement = Arrangement.Center,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Checkbox(checked = ischeacked.value, onCheckedChange = {ischeacked.value = it})
-                Spacer(modifier = Modifier.size(16.dp))
-                Text(text = option)
-            }
-
-        }
-
+     radio_option.forEachIndexed { i, option : String ->
+         Row() {
+             RadioButton(selected =  checkstate == i, onClick = { checkstate = i  })
+             Spacer(modifier = Modifier.size(16.dp))
+             Text(text = option)
+         }
+     }
     }
 
-
 }
+
 
 @Preview(showBackground = true)
 @Composable
