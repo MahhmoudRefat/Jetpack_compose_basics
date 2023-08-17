@@ -44,27 +44,18 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MyApp() {
-    var radio_option = listOf("apple","banana","orange")
-    var checkstate by remember { mutableStateOf(0) }
-    Column(
+    var switchStat by remember { mutableStateOf(false) }
+    Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.White),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
+            .background(if (switchStat) Color.Magenta else Color.Yellow),
+        Alignment.Center
     ) {
+        Switch(checked = switchStat, onCheckedChange = { switchStat = it })
 
-     radio_option.forEachIndexed { i, option : String ->
-         Row() {
-             RadioButton(selected =  checkstate == i, onClick = { checkstate = i  })
-             Spacer(modifier = Modifier.size(16.dp))
-             Text(text = option)
-         }
-     }
+
     }
-
 }
-
 
 @Preview(showBackground = true)
 @Composable
