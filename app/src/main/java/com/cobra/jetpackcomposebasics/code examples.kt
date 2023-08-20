@@ -209,4 +209,17 @@ fun AppPreview() {
 
     }
      */
+    /*
+    ******************* image ****************
+    * Column() {
+            Image(
+                painter = painterResource(id = R.drawable.photo), contentDescription = "Image",
+                modifier = Modifier
+                    .size(230.dp)
+                    .clip(RoundedCornerShape(10.dp)),
+                // alignment = Alignment . BottomEnd,
+                contentScale = ContentScale.Fit
+            )
+        }
+     */
 }

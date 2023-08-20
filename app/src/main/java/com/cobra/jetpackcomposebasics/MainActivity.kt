@@ -13,13 +13,18 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.CutCornerShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.Send
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
@@ -28,7 +33,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardCapitalization
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -45,26 +55,39 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun MyApp() {
-    var switchStat by remember { mutableStateOf(false) }
-    Column(
+    val keyboard_controller = LocalSoftwareKeyboardController.current
+    val context = LocalContext.current
+    var changet_text by remember {
+        mutableStateOf("")
+    }
+    Box(
         modifier = Modifier
             .fillMaxSize()
             .background(Color.White),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+        contentAlignment = Alignment.Center
     ) {
-        Column() {
-            Image(
-                painter = painterResource(id = R.drawable.photo), contentDescription = "Image",
-                modifier = Modifier
-                    .size(230.dp)
-                    .clip(RoundedCornerShape(10.dp)),
-                // alignment = Alignment . BottomEnd,
-                contentScale = ContentScale.Fit
+        OutlinedTextField(
+            value = changet_text,
+            onValueChange = { changet_text = it },
+            label = { Text(text = "Enter Your Name") },
+            modifier = Modifier.width(270.dp),
+            maxLines = 2,
+            placeholder = { Text(text = "example ") },
+            leadingIcon = { Icon(imageVector = Icons.Filled.Edit, contentDescription = "icon") },
+            trailingIcon = {
+                IconButton(onClick = { /*TODO*/ }) {
+                    Icon(imageVector = Icons.Filled.Send, contentDescription = "snd")
+                }
+            },
+            keyboardActions = KeyboardActions(
+                onDone = { keyboard_controller?.hide()
+                Toast.makeText(context,"welcome ya houda ",Toast.LENGTH_SHORT).show()
+                }
             )
-        }
+        )
 
 
     }
