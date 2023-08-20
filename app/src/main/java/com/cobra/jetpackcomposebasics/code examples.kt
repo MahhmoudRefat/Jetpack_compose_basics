@@ -283,6 +283,40 @@ fun AppPreview() {
 
     }
      */
+    /*
+    ****************************** Card *************************
+    *        //First Column Scope
+        Card( //card properities -- > شكل الكارد نفسه
+            modifier = Modifier
+                .width(200.dp)
+                .heightIn(270.dp),
+            shape = RoundedCornerShape(topStart = 16.dp, bottomEnd = 16.dp),
+            backgroundColor = Color.White,
+            elevation = 10.dp
+
+        ) {  // داخل هذا الكارد
+            Column() {
+                Image( // الصورة ومواصفتها
+                    painter = painterResource(id = R.drawable.photo),
+                    contentDescription = "spong pop ",
+                    modifier = Modifier
+                        .heightIn(150.dp)
+                        .fillMaxWidth(),
+                    contentScale = ContentScale.Crop
+                )
+                Column( //جوة الكولم الى فيه الصورة عملنا كولوم جديد
+                    modifier = Modifier.padding(16.dp)
+                ) {
+                    //ده الكتابة جوة الكولوم الجدسد
+                    Text(text = "Title", fontSize = 16.sp, fontWeight = FontWeight.Bold)
+                    Text(text = "sponge pop is a cartoon for kids and most kids are love this cartoon "
+                    , color = Color.DarkGray, maxLines = 2, overflow = TextOverflow.Ellipsis)
+
+
+                }
+            }
+        }
+     */
 }
 
 /*

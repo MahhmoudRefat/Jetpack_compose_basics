@@ -10,6 +10,9 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.CutCornerShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -57,52 +60,43 @@ class MainActivity : ComponentActivity() {
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun MyApp() {
-    val keyboard_controller = LocalSoftwareKeyboardController.current
-    val context = LocalContext.current
-    val mycolor = Color.Green
-    var changet_text by remember {
-        mutableStateOf("")
-    }
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.White),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
+    /*  val keyboard_controller = LocalSoftwareKeyboardController.current
+      val context = LocalContext.current
+      val mycolor = Color.Green
+      var changet_text by remember {
+          mutableStateOf("")
+      }*/
 
-    ) {
-
-        Card(
-            modifier = Modifier
-                .width(200.dp)
-                .heightIn(270.dp),
-            shape = RoundedCornerShape(topStart = 16.dp, bottomEnd = 16.dp),
-            backgroundColor = Color.White,
-            elevation = 10.dp
-
-        ) {
-            Column() {
-                Image(
-                    painter = painterResource(id = R.drawable.photo),
-                    contentDescription = "spong pop ",
-                    modifier = Modifier
-                        .heightIn(150.dp)
-                        .fillMaxWidth(),
-                    contentScale = ContentScale.Crop
-                )
-                Column(
-                    modifier = Modifier.padding(16.dp)
-
-                ) {
-                    Text(text = "Title", fontSize = 16.sp, fontWeight = FontWeight.Bold)
-                    Text(text = "sponge pop is a cartoon for kids and most kids are love this cartoon "
-                    , color = Color.DarkGray, maxLines = 2, overflow = TextOverflow.Ellipsis)
-
-
-                }
-            }
+    Column() {
+        val gamelist = listOf(
+            "HORIZEN", "ShadowsocksR", "Tivi", "Plaid", "FoldingCell", "Anvil"
+        )
+        LazyRow( contentPadding = PaddingValues(20.dp)) {
+            items(gamelist) { item -> MYCard(gamename = item) }
         }
+        LazyColumn( contentPadding = PaddingValues(20.dp)) {
+            items(gamelist) { item -> MYCard(gamename = item) }
+        }
+    }
+}
 
+@Composable
+fun MYCard(gamename: String) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .heightIn(120.dp).padding(6.dp),
+
+        shape = RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp),
+        elevation = 10.dp
+    ) {
+        Row(
+            modifier = Modifier.padding(10.dp),
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+        Text(text = gamename , fontSize = 22.sp)
+        }
     }
 }
 
