@@ -317,6 +317,42 @@ fun AppPreview() {
             }
         }
      */
+    /*
+    ********************* lazy column and lazy row *******************
+    *
+    Column() {
+        val gamelist = listOf(
+            "HORIZEN", "ShadowsocksR", "Tivi", "Plaid", "FoldingCell", "Anvil"
+        )
+        LazyRow( contentPadding = PaddingValues(20.dp)) {
+            items(gamelist) { item -> MYCard(gamename = item) }
+        }
+        LazyColumn( contentPadding = PaddingValues(20.dp)) {
+            items(gamelist) { item -> MYCard(gamename = item) }
+        }
+    }
+}
+
+@Composable
+fun MYCard(gamename: String) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .heightIn(120.dp).padding(6.dp),
+
+        shape = RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp),
+        elevation = 10.dp
+    ) {
+        Row(
+            modifier = Modifier.padding(10.dp),
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+        Text(text = gamename , fontSize = 22.sp)
+        }
+    }
+}
+     */
 }
 
 /*
