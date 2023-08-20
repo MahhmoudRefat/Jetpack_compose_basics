@@ -32,10 +32,12 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -64,42 +66,42 @@ fun MyApp() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.White)
-            .padding(20.dp),
+            .background(Color.White),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
+
     ) {
 
-        TextField(
-            value = changet_text,
-            onValueChange = { changet_text = it },
-            label = { Text(text = "enter your name ", color = Color.DarkGray) },
-            leadingIcon = { Icon(imageVector = Icons.Filled.Person, contentDescription = "icon") },
-            colors = TextFieldDefaults.textFieldColors(
-                unfocusedLabelColor = mycolor,
-                focusedLabelColor = mycolor,
-                backgroundColor = mycolor.copy(TextFieldDefaults.BackgroundOpacity),
-                focusedIndicatorColor = mycolor,
-                cursorColor = mycolor,
-                textColor = Color.DarkGray
-            ), shape = CutCornerShape(topStart = 15.dp, topEnd = 15.dp)
+        Card(
+            modifier = Modifier
+                .width(200.dp)
+                .heightIn(270.dp),
+            shape = RoundedCornerShape(topStart = 16.dp, bottomEnd = 16.dp),
+            backgroundColor = Color.White,
+            elevation = 10.dp
+
+        ) {
+            Column() {
+                Image(
+                    painter = painterResource(id = R.drawable.photo),
+                    contentDescription = "spong pop ",
+                    modifier = Modifier
+                        .heightIn(150.dp)
+                        .fillMaxWidth(),
+                    contentScale = ContentScale.Crop
+                )
+                Column(
+                    modifier = Modifier.padding(16.dp)
+
+                ) {
+                    Text(text = "Title", fontSize = 16.sp, fontWeight = FontWeight.Bold)
+                    Text(text = "sponge pop is a cartoon for kids and most kids are love this cartoon "
+                    , color = Color.DarkGray, maxLines = 2, overflow = TextOverflow.Ellipsis)
 
 
-        )
-        TextField(
-            value = changet_text,
-            onValueChange = { changet_text = it },
-            label = { Text(text = "enter your name ", color = Color.DarkGray) },
-            leadingIcon = { Icon(imageVector = Icons.Filled.Person, contentDescription = "icon") },
-            colors = TextFieldDefaults.textFieldColors(
-                unfocusedLabelColor = Color.Blue,
-                focusedLabelColor = Color.Blue,
-                backgroundColor = Color.Blue.copy(TextFieldDefaults.BackgroundOpacity),
-                focusedIndicatorColor = Color.Blue,
-                cursorColor = Color.Blue,
-                textColor = Color.Blue
-            ), shape = RoundedCornerShape(topStart = 15.dp, topEnd = 15.dp)
-        )
+                }
+            }
+        }
 
     }
 }
