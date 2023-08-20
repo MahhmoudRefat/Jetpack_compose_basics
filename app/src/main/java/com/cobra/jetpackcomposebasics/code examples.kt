@@ -386,6 +386,42 @@ fun Mycard(mytext: String) {
 }
 
      */
+    /*
+    ****************** Top App bar ***********************
+    *
+     Scaffold(topBar = {
+        TopAppBar(
+            title = {
+                Box(
+                    modifier = Modifier.fillMaxWidth(),
+                    Alignment.Center
+                ) { Text(text = "Top App Bar ") }
+            }, navigationIcon = {
+                IconButton(onClick = { /*TODO*/ }) {
+                    Icon(imageVector = Icons.Filled.Menu, contentDescription = "")
+                }
+            },
+            modifier = Modifier
+                .padding(horizontal = 16.dp, vertical = 16.dp)
+                .clip(RoundedCornerShape(10.dp)),
+            backgroundColor = Color.Gray,
+            contentColor = Color.White,
+            elevation = 8.dp,
+            actions = {
+                IconButton(onClick = { /*TODO*/ }) {
+                    Icon(imageVector = Icons.Default.FavoriteBorder, contentDescription = null)
+
+                }
+                IconButton(onClick = { /*TODO*/ }) {
+                    Icon(imageVector = Icons.Default.ShoppingCart, contentDescription = null)
+                }
+            }
+        )
+    }
+    ) {
+    }
+
+     */
 }
 
 /*

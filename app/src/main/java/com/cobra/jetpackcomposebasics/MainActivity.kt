@@ -84,37 +84,50 @@ class MainActivity : ComponentActivity() {
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun MyApp() {
-    Scaffold(topBar = {
-        TopAppBar(
-            title = {
-                Box(
-                    modifier = Modifier.fillMaxWidth(),
-                    Alignment.Center
-                ) { Text(text = "Top App Bar ") }
-            }, navigationIcon = {
-                IconButton(onClick = { /*TODO*/ }) {
-                    Icon(imageVector = Icons.Filled.Menu, contentDescription = "")
-                }
-            },
-            modifier = Modifier
-                .padding(horizontal = 16.dp, vertical = 16.dp)
-                .clip(RoundedCornerShape(10.dp)),
-            backgroundColor = Color.Gray,
-            contentColor = Color.White,
-            elevation = 8.dp,
-            actions = {
-                IconButton(onClick = { /*TODO*/ }) {
-                    Icon(imageVector = Icons.Default.FavoriteBorder, contentDescription = null)
+    var bottom_state by remember {
+        mutableStateOf("Home")
+    }
+    Scaffold(
+        content = {
+        Box(modifier = Modifier.fillMaxSize(), Alignment.Center) {
+        Text(text = bottom_state, fontSize = 25.sp, fontWeight =FontWeight.Bold)
 
-                }
-                IconButton(onClick = { /*TODO*/ }) {
-                    Icon(imageVector = Icons.Default.ShoppingCart, contentDescription = null)
-                }
-            }
-        )
-    }
-    ) {
-    }
+        }
+    }, bottomBar = {
+        BottomNavigation() {
+            BottomNavigationItem(
+                selected = bottom_state == "Home",
+                onClick = { bottom_state = "Home" },
+                label = { Text(text = "Home") },
+                icon = { Icon(imageVector = Icons.Default.Home, contentDescription = "icon") })
+            BottomNavigationItem(
+                selected = bottom_state == "Account",
+                onClick = { bottom_state = "Account" },
+                label = { Text(text = "Account") },
+                icon = {
+                    Icon(
+                        imageVector = Icons.Default.AccountCircle,
+                        contentDescription = "Account"
+                    )
+                })
+            BottomNavigationItem(
+                selected = bottom_state == "Search",
+                onClick = { bottom_state = "Search" },
+                label = { Text(text = "Search") },
+                icon = { Icon(imageVector = Icons.Default.Search, contentDescription = "Search") })
+            BottomNavigationItem(
+                selected = bottom_state == "setting",
+                onClick = { bottom_state = "setting" },
+                label = { Text(text = "setting") },
+                icon = {
+                    Icon(
+                        imageVector = Icons.Default.Settings,
+                        contentDescription = "setting"
+                    )
+                })
+
+        }
+    })
 
 
 }
