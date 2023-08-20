@@ -17,10 +17,7 @@ import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.Edit
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.Send
+import androidx.compose.material.icons.filled.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
@@ -60,35 +57,49 @@ class MainActivity : ComponentActivity() {
 fun MyApp() {
     val keyboard_controller = LocalSoftwareKeyboardController.current
     val context = LocalContext.current
+    val mycolor = Color.Green
     var changet_text by remember {
         mutableStateOf("")
     }
-    Box(
+    Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.White),
-        contentAlignment = Alignment.Center
+            .background(Color.White)
+            .padding(20.dp),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        OutlinedTextField(
+
+        TextField(
             value = changet_text,
             onValueChange = { changet_text = it },
-            label = { Text(text = "Enter Your Name") },
-            modifier = Modifier.width(270.dp),
-            maxLines = 2,
-            placeholder = { Text(text = "example ") },
-            leadingIcon = { Icon(imageVector = Icons.Filled.Edit, contentDescription = "icon") },
-            trailingIcon = {
-                IconButton(onClick = { /*TODO*/ }) {
-                    Icon(imageVector = Icons.Filled.Send, contentDescription = "snd")
-                }
-            },
-            keyboardActions = KeyboardActions(
-                onDone = { keyboard_controller?.hide()
-                Toast.makeText(context,"welcome ya houda ",Toast.LENGTH_SHORT).show()
-                }
-            )
-        )
+            label = { Text(text = "enter your name ", color = Color.DarkGray) },
+            leadingIcon = { Icon(imageVector = Icons.Filled.Person, contentDescription = "icon") },
+            colors = TextFieldDefaults.textFieldColors(
+                unfocusedLabelColor = mycolor,
+                focusedLabelColor = mycolor,
+                backgroundColor = mycolor.copy(TextFieldDefaults.BackgroundOpacity),
+                focusedIndicatorColor = mycolor,
+                cursorColor = mycolor,
+                textColor = Color.DarkGray
+            ), shape = CutCornerShape(topStart = 15.dp, topEnd = 15.dp)
 
+
+        )
+        TextField(
+            value = changet_text,
+            onValueChange = { changet_text = it },
+            label = { Text(text = "enter your name ", color = Color.DarkGray) },
+            leadingIcon = { Icon(imageVector = Icons.Filled.Person, contentDescription = "icon") },
+            colors = TextFieldDefaults.textFieldColors(
+                unfocusedLabelColor = Color.Blue,
+                focusedLabelColor = Color.Blue,
+                backgroundColor = Color.Blue.copy(TextFieldDefaults.BackgroundOpacity),
+                focusedIndicatorColor = Color.Blue,
+                cursorColor = Color.Blue,
+                textColor = Color.Blue
+            ), shape = RoundedCornerShape(topStart = 15.dp, topEnd = 15.dp)
+        )
 
     }
 }

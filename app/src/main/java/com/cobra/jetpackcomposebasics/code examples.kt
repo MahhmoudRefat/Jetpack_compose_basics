@@ -222,4 +222,43 @@ fun AppPreview() {
             )
         }
      */
+    /*
+
+     *********************** text field ****************
+    OutlinedTextField(
+            value = changet_text,
+            onValueChange = { changet_text = it },
+            label = { Text(text = "Enter Your Name") },
+            modifier = Modifier.width(270.dp),
+            maxLines = 2,
+            placeholder = { Text(text = "example ") },
+            leadingIcon = { Icon(imageVector = Icons.Filled.Edit, contentDescription = "icon") },
+            trailingIcon = {
+                IconButton(onClick = { /*TODO*/ }) {
+                    Icon(imageVector = Icons.Filled.Send, contentDescription = "snd")
+                }
+            },
+            keyboardActions = KeyboardActions(
+                onDone = { keyboard_controller?.hide()
+                Toast.makeText(context,"welcome ya houda ",Toast.LENGTH_SHORT).show()
+                }
+            )
+        )
+     */
 }
+
+/*
+Row(
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically
+            )
+
+             Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.White)
+            .padding(20.dp),
+        verticalArrangement = Arrangement.spacedBy(20.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+ */
