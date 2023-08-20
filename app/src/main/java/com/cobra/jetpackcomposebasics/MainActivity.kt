@@ -62,38 +62,60 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+/*  val keyboard_controller = LocalSoftwareKeyboardController.current
+     val context = LocalContext.current
+     val mycolor = Color.Green
+     var changet_text by remember {
+         mutableStateOf("")
+     }*/
+
+/*Column() {
+    val gamelist = listOf(
+        "HORIZEN", "ShadowsocksR", "Tivi", "Plaid", "FoldingCell", "Anvil"
+    )
+    LazyRow( contentPadding = PaddingValues(20.dp)) {
+        items(gamelist) { item -> MYCard(gamename = item) }
+    }
+    LazyColumn( contentPadding = PaddingValues(20.dp)) {
+        items(gamelist) { item -> MYCard(gamename = item) }
+    }
+}*/
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun MyApp() {
-    /*  val keyboard_controller = LocalSoftwareKeyboardController.current
-      val context = LocalContext.current
-      val mycolor = Color.Green
-      var changet_text by remember {
-          mutableStateOf("")
-      }*/
+    Scaffold(topBar = {
+        TopAppBar(
+            title = {
+                Box(
+                    modifier = Modifier.fillMaxWidth(),
+                    Alignment.Center
+                ) { Text(text = "Top App Bar ") }
+            }, navigationIcon = {
+                IconButton(onClick = { /*TODO*/ }) {
+                    Icon(imageVector = Icons.Filled.Menu, contentDescription = "")
+                }
+            },
+            modifier = Modifier
+                .padding(horizontal = 16.dp, vertical = 16.dp)
+                .clip(RoundedCornerShape(10.dp)),
+            backgroundColor = Color.Gray,
+            contentColor = Color.White,
+            elevation = 8.dp,
+            actions = {
+                IconButton(onClick = { /*TODO*/ }) {
+                    Icon(imageVector = Icons.Default.FavoriteBorder, contentDescription = null)
 
-    /*Column() {
-        val gamelist = listOf(
-            "HORIZEN", "ShadowsocksR", "Tivi", "Plaid", "FoldingCell", "Anvil"
+                }
+                IconButton(onClick = { /*TODO*/ }) {
+                    Icon(imageVector = Icons.Default.ShoppingCart, contentDescription = null)
+                }
+            }
         )
-        LazyRow( contentPadding = PaddingValues(20.dp)) {
-            items(gamelist) { item -> MYCard(gamename = item) }
-        }
-        LazyColumn( contentPadding = PaddingValues(20.dp)) {
-            items(gamelist) { item -> MYCard(gamename = item) }
-        }
-    }*/
-
-    val gamelist = listOf(
-        "HORIZEN", "ShadowsocksR", "Tivi", "Plaid", "FoldingCell", "Anvil" )
-
-    LazyVerticalGrid(
-        columns = GridCells.Adaptive(minSize = 100.dp),
-        contentPadding = PaddingValues(8.dp)
-    ) {
-        items(count = 200) { num -> Mycard(mytext = "$num") }
     }
+    ) {
+    }
+
 
 }
 
@@ -103,7 +125,12 @@ fun Mycard(mytext: String) {
         modifier = Modifier
             .heightIn(75.dp)
             .padding(6.dp),
-        backgroundColor = Color(Random.nextFloat(),Random.nextFloat(),Random.nextFloat(), alpha = 1f),
+        backgroundColor = Color(
+            Random.nextFloat(),
+            Random.nextFloat(),
+            Random.nextFloat(),
+            alpha = 1f
+        ),
         elevation = 6.dp
     ) {
         Column(

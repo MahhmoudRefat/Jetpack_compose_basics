@@ -353,6 +353,39 @@ fun MYCard(gamename: String) {
     }
 }
      */
+    /*
+    ***************************** Lazy Vertical Grid ***********************
+    *  val gamelist = listOf(
+        "HORIZEN", "ShadowsocksR", "Tivi", "Plaid", "FoldingCell", "Anvil" )
+
+    LazyVerticalGrid(
+        columns = GridCells.Adaptive(minSize = 100.dp),
+        contentPadding = PaddingValues(8.dp)
+    ) {
+        items(count = 200) { num -> Mycard(mytext = "$num") }
+    }
+
+}
+
+@Composable
+fun Mycard(mytext: String) {
+    Card(
+        modifier = Modifier
+            .heightIn(75.dp)
+            .padding(6.dp),
+        backgroundColor = Color(Random.nextFloat(),Random.nextFloat(),Random.nextFloat(), alpha = 1f),
+        elevation = 6.dp
+    ) {
+        Column(
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(text = mytext)
+        }
+    }
+}
+
+     */
 }
 
 /*
