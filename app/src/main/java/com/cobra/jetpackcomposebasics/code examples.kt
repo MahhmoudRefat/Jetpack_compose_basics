@@ -422,6 +422,55 @@ fun Mycard(mytext: String) {
     }
 
      */
+    /*
+    ****************  bottom navigation bat  **********************
+    *   var bottom_state by remember {
+        mutableStateOf("Home")
+    }
+    Scaffold(
+        content = {
+        Box(modifier = Modifier.fillMaxSize(), Alignment.Center) {
+        Text(text = bottom_state, fontSize = 25.sp, fontWeight =FontWeight.Bold)
+
+        }
+    }, bottomBar = {
+        BottomNavigation() {
+            BottomNavigationItem(
+                selected = bottom_state == "Home",
+                onClick = { bottom_state = "Home" },
+                label = { Text(text = "Home") },
+                icon = { Icon(imageVector = Icons.Default.Home, contentDescription = "icon") })
+            BottomNavigationItem(
+                selected = bottom_state == "Account",
+                onClick = { bottom_state = "Account" },
+                label = { Text(text = "Account") },
+                icon = {
+                    Icon(
+                        imageVector = Icons.Default.AccountCircle,
+                        contentDescription = "Account"
+                    )
+                })
+            BottomNavigationItem(
+                selected = bottom_state == "Search",
+                onClick = { bottom_state = "Search" },
+                label = { Text(text = "Search") },
+                icon = { Icon(imageVector = Icons.Default.Search, contentDescription = "Search") })
+            BottomNavigationItem(
+                selected = bottom_state == "setting",
+                onClick = { bottom_state = "setting" },
+                label = { Text(text = "setting") },
+                icon = {
+                    Icon(
+                        imageVector = Icons.Default.Settings,
+                        contentDescription = "setting"
+                    )
+                })
+
+        }
+    })
+
+
+     */
 }
 
 /*
