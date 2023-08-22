@@ -85,9 +85,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MyApp() {
 
-
-
-
 }
 
 @Composable
