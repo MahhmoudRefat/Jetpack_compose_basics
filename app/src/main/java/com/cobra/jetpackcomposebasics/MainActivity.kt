@@ -84,27 +84,8 @@ class MainActivity : ComponentActivity() {
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun MyApp() {
-    var bottom_state by remember {
-        mutableStateOf("Home")
-    }
-    Scaffold(floatingActionButton = {
-        FloatingActionButton(
-            onClick = { /*TODO*/ },
-            backgroundColor = Color.Magenta,
-            shape = RoundedCornerShape(topEnd = 30.dp, topStart = 30.dp)
-        ) {
-            Icon(imageVector = Icons.Default.Add, contentDescription = "icon")
-        }
-    },
-        bottomBar = { BottomAppBar() {} }
 
 
-    )
-
-
-    {
-
-    }
 
 
 }
