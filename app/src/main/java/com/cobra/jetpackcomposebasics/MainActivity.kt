@@ -58,7 +58,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             // بنادى هنا عشان تتنفذ فى الابب
             MyApp()
-
+             nav()
         }
     }
 }
