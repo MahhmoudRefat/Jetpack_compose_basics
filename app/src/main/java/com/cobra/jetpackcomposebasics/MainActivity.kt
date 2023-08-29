@@ -59,7 +59,6 @@ class MainActivity : ComponentActivity() {
             // بنادى هنا عشان تتنفذ فى الابب
             MyApp()
             nav()
-
         }
     }
 }
