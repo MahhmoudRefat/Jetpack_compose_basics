@@ -8,13 +8,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.cobra.jetpackcomposebasics.navigation.Screens
 
 @Composable
-fun CScreen(navController: NavController) {
+fun OneScreen(navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -23,13 +23,13 @@ fun CScreen(navController: NavController) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(text = "C", fontSize = 30.sp)
+        Text(text = "1", fontSize = 30.sp)
         Spacer(modifier = Modifier.size(30.dp))
-        Button(onClick = {navController.navigate("A"){
-            popUpTo("A")
-        }
+        Button(onClick = {
+            navController.navigate(Screens.LetterRoute.route){  }
 
-        }) {
+        }
+        ) {
             Text(text = "Go To A ")
         }
     }

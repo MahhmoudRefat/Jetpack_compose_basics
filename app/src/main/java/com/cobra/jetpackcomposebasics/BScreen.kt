@@ -25,7 +25,9 @@ fun BScreen(navController: NavController) {
     ) {
         Text(text = "B", fontSize = 30.sp)
         Spacer(modifier = Modifier.size(30.dp))
-        Button(onClick = {navController.navigate("C") }) {
+        Button(onClick = {
+        //    navController.navigate("C")
+        }) {
             Text(text = "Go To C ")
         }
     }
