@@ -68,7 +68,6 @@ class MainActivity : ComponentActivity() {
      var changet_text by remember {
          mutableStateOf("")
      }*/
-
 /*Column() {
     val gamelist = listOf(
         "HORIZEN", "ShadowsocksR", "Tivi", "Plaid", "FoldingCell", "Anvil"
