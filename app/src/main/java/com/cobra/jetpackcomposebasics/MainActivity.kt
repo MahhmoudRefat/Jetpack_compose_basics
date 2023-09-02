@@ -57,10 +57,25 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             // بنادى هنا عشان تتنفذ فى الابب
-            MyApp()
-            nav()
+            Greating(name = "mahmoud refaat ")
+            //  MyApp()
+            //   nav()
         }
     }
+}
+
+@Composable
+fun Greating(name: String) {
+    Text(text = "HEllo $name")
+}
+
+@Preview(showBackground = true)
+@Composable
+fun AppPreview() {
+
+    MyApp()
+    Greating(name = "android")
+
 }
 /*  val keyboard_controller = LocalSoftwareKeyboardController.current
      val context = LocalContext.current
@@ -128,12 +143,4 @@ fun MYCard(gamename: String) {
             Text(text = gamename, fontSize = 22.sp)
         }
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun AppPreview() {
-
-    MyApp()
-
 }
