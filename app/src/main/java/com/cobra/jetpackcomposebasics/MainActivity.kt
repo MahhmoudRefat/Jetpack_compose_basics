@@ -62,24 +62,9 @@ class MainActivity : ComponentActivity() {
         setContent {
             // بنادى هنا عشان تتنفذ فى الابب
 
-            Box(modifier = Modifier
-                .background(Color.Black)
-                .fillMaxSize()){
-                Text(text = buildAnnotatedString { withStyle(
-                    style= SpanStyle(
-                        color = Color.Green,
-                        fontSize = 50.sp
-                    )
-                ) {
-                    append("J")
-                }
-                    append("etpack")
-                                                 },
-                    color = Color.White,
-                    fontSize = 30.sp,
-                    fontFamily = FontFamily.Monospace,
-                    textDecoration = TextDecoration.Underline
-                )
+          Snackbar {
+              Text(text = "Hello Mr Mahmoud ")
+          }
 
 
 
@@ -99,6 +84,7 @@ fun Greating(name: String) {
 @Preview(showBackground = true)
 @Composable
 fun AppPreview() {
+
 
     MyApp()
     Greating(name = "android")
@@ -170,4 +156,4 @@ fun MYCard(gamename: String) {
             Text(text = gamename, fontSize = 22.sp)
         }
     }
-}}
+}

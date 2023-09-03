@@ -504,3 +504,29 @@ Row(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
  */
+
+/*
+********************** text style ************************
+            Box(modifier = Modifier
+                .background(Color.Black)
+                .fillMaxSize()){
+                Text(text = buildAnnotatedString { withStyle(
+                    style= SpanStyle(
+                        color = Color.Green,
+                        fontSize = 50.sp
+                    )
+                ) {
+                    append("J")
+                }
+                    append("etpack")
+                                                 },
+                    color = Color.White,
+                    fontSize = 30.sp,
+                    fontFamily = FontFamily.Monospace,
+                    textDecoration = TextDecoration.Underline
+                )
+
+
+
+
+ */
