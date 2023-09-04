@@ -61,13 +61,17 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             // بنادى هنا عشان تتنفذ فى الابب
-
-          Snackbar {
-              Text(text = "Hello Mr Mahmoud ")
-          }
-
-
-
+            var sizestate =  remember { mutableListOf(200.dp) }
+            Box(
+                modifier = Modifier
+                    .size(200.dp)
+                    .background(Color.Blue),
+                contentAlignment = Alignment.Center
+            ) {
+                Button(onClick = { /*TODO*/ }) {
+                    Text(text = "increse style ")
+                }
+            }
 
             //  MyApp()
             //   nav()
