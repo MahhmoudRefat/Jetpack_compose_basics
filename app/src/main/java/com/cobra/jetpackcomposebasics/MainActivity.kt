@@ -72,7 +72,7 @@ class MainActivity : ComponentActivity() {
                     Text(text = "increse style ")
                 }
             }
-
+//animation here
             //  MyApp()
             //   nav()
         }
